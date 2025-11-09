@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éternel Realms - Game</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel+Decorative:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #071020, #050510 70%);
+  color: #e6e6e6;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: rgba(5, 5, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+}
+.navbar a {
+  color: #e6e6e6;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+/* HERO SECTION */
+.hero {
+  text-align: center;
+  padding: 100px 10% 60px;
+  background: linear-gradient(180deg, #050510 0%, #0a0a18 100%);
+}
+.hero h1 {
+  font-size: 3.2rem;
+  color: #00bfff;
+  text-shadow: 0 0 25px rgba(0,191,255,0.8), 0 0 60px rgba(0,191,255,0.3);
+  animation: glowPulse 3s infinite alternate;
+}
+.hero p {
+  color: #b0c4de;
+  font-size: 1.3rem;
+  margin-top: 10px;
+}
+
+.modes {
+  padding: 70px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+.mode-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(0,191,255,0.2);
+  border-radius: 15px;
+  width: 320px;
+  text-align: center;
+  overflow: hidden;
+  transition: 0.4s ease;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+}
+.mode-card:hover {
+  transform: translateY(-12px) scale(1.05);
+  box-shadow: 0 0 30px #00bfff40;
+}
+.mode-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  filter: brightness(0.8);
+  transition: transform 0.8s ease;
+}
+.mode-card:hover img {
+  transform: scale(1.1);
+}
+.mode-info {
+  padding: 20px;
+}
+.mode-info h2 {
+  color: #00bfff;
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+.mode-info p {
+  color: #cfdfff;
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+.play-btn {
+  display: inline-block;
+  padding: 10px 25px;
+  border: 2px solid #00bfff;
+  color: #00bfff;
+  border-radius: 25px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  font-weight: bold;
+}
+.play-btn:hover {
+  background-color: #00bfff;
+  color: #000;
+  box-shadow: 0 0 25px #00bfff, 0 0 60px #00bfff60;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050510;
+  border-top: 1px solid rgba(0,191,255,0.15);
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+@keyframes glowPulse {
+  from { text-shadow: 0 0 20px #00bfff; }
+  to { text-shadow: 0 0 35px #00bfff; }
+}
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.4rem; }
+  .mode-card { width: 90%; }
+}
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+  <a href="home.html">Home</a>
+  <a href="login1.html">Login</a>
+  <a href="game.html">Game</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="#">Community</a>
+  <a href="#">Contact</a>
+</nav>
+
+<section class="hero">
+  <h1>Enter the Battle Realms</h1>
+  <p>Choose your path — every victory echoes through eternity.</p>
+</section>
+
+<section class="modes">
+  <div class="mode-card">
+    <img src="C:\Users\krish\OneDrive\Documents\website\bg3.jpg" alt="PvP Arena">
+    <div class="mode-info">
+      <h2>PvP Arena</h2>
+      <p>Face powerful opponents from across the Realms in intense real-time combat.</p>
+      <a href="#" class="play-btn">Enter Arena</a>
+    </div>
+  </div>
+
+  <div class="mode-card">
+    <img src="C:\Users\krish\OneDrive\Documents\website\bg4.jpg" alt="Story Quest">
+    <div class="mode-info">
+      <h2>Story Quest</h2>
+      <p>Uncover the ancient secrets of the Realms through cinematic missions.</p>
+      <a href="#" class="play-btn">Start Quest</a>
+    </div>
+  </div>
+
+  <div class="mode-card">
+    <img src="C:\Users\krish\OneDrive\Documents\website\bg5.jpg" alt="Boss Raid">
+    <div class="mode-info">
+      <h2>Boss Raids</h2>
+      <p>Join allies to battle colossal mythical beasts and earn legendary rewards.</p>
+      <a href="#" class="play-btn">Join Raid</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Éternel Realms | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

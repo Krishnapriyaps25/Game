@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éternel Realms - Heroes</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #050510;
+  color: #e6e6e6;
+  overflow-x: hidden;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: rgba(5, 5, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+}
+.navbar a {
+  color: #e6e6e6;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+.heroes-section {
+  padding: 80px 10%;
+  background: linear-gradient(180deg, #050510 0%, #0a0a18 100%);
+  position: relative;
+  text-align: center;
+}
+.heroes-section::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 191, 255, 0.08), transparent 70%);
+  animation: glowPulse 6s ease-in-out infinite alternate;
+  z-index: 0;
+}
+@keyframes glowPulse {
+  from { opacity: 0.3; transform: scale(1); }
+  to { opacity: 0.6; transform: scale(1.1); }
+}
+.heroes-section h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 3rem;
+  color: #00bfff;
+  text-shadow: 0 0 25px rgba(0,191,255,0.8), 0 0 60px rgba(0,191,255,0.3);
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 2;
+}
+.heroes-section p {
+  font-size: 1.2rem;
+  color: #d0d8ff;
+  margin-bottom: 60px;
+  position: relative;
+  z-index: 2;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  position: relative;
+  z-index: 2;
+}
+.hero-card {
+  background: rgba(0, 0, 20, 0.8);
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(0,191,255,0.2);
+  box-shadow: 0 0 25px rgba(0,191,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0,191,255,0.15), transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.hero-card:hover::after {
+  opacity: 1;
+}
+.hero-card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 40px rgba(0,191,255,0.3);
+}
+.hero-card img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+  filter: brightness(0.85);
+}
+.hero-card:hover img {
+  transform: scale(1.08);
+  filter: brightness(1);
+}
+.hero-info {
+  padding: 20px;
+  text-align: center;
+}
+.hero-info h2 {
+  margin: 8px 0;
+  font-size: 1.6rem;
+  color: #00bfff;
+  text-shadow: 0 0 15px rgba(0,191,255,0.7);
+}
+.hero-role {
+  font-style: italic;
+  color: #b0c4de;
+}
+.hero-stats {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #a0b8ff;
+}
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050510;
+  border-top: 1px solid rgba(0,191,255,0.15);
+  color: #aaa;
+  letter-spacing: 0.5px;
+  margin-top: 80px;
+}
+@media (max-width: 768px) {
+  .heroes-section h1 { font-size: 2.3rem; }
+  .hero-card img { height: 280px; }
+}
+</style>
+</head>
+
+<body>
+<nav class="navbar">
+  <a href="home.html">Home</a>
+  <a href="login1.html">Login</a>
+  <a href="#">Game</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="#">Events</a>
+  <a href="#">Community</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="#">Contact</a>
+</nav>
+
+<section class="heroes-section">
+  <h1>Champions of Éternel Realms</h1>
+  <p>Each hero carries a legacy, a weapon, and a destiny. Choose wisely — your realm depends on it.</p>
+
+  <div class="hero-grid">
+    <div class="hero-card">
+      <img src="https://i.pinimg.com/736x/45/d6/e9/45d6e98842f93fd0f4470294dcc53af1.jpg" alt="Warrior">
+      <div class="hero-info">
+        <h2>Tharion Stormblade</h2>
+        <div class="hero-role">Warrior</div>
+        <div class="hero-stats">Attack: 90 | Defense: 80 | Speed: 60</div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="https://i.pinimg.com/736x/e8/ef/99/e8ef9957bf8a2ec5149950fbf176421a.jpg" alt="Mage">
+      <div class="hero-info">
+        <h2>Selira Moonfire</h2>
+        <div class="hero-role">Mage</div>
+        <div class="hero-stats">Attack: 70 | Defense: 50 | Magic: 100</div>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <img src="https://i.pinimg.com/1200x/eb/ee/82/ebee82b5cfaa5d03cb788dfb42e3c497.jpg" alt="Assassin">
+      <div class="hero-info">
+        <h2>Kael Nightfang</h2>
+        <div class="hero-role">Assassin</div>
+        <div class="hero-stats">Attack: 85 | Defense: 40 | Speed: 95</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Éternel Realms | All Rights Reserved</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éternel Realms</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #050510;
+  color: #e6e6e6;
+  overflow-x: hidden;
+}
+
+/* HERO + SLIDESHOW */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.slideshow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: slowZoom 45s ease-in-out infinite alternate;
+}
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+  filter: brightness(0.7) contrast(1.15) saturate(1.2);
+}
+.slide.active {
+  opacity: 1;
+}
+@keyframes slowZoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.06); }
+}
+
+/* MYSTICAL OVERLAY */
+.hero::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 50, 100, 0.2) 0%, #050510 90%);
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.hero-content h1 {
+  font-size: 4rem;
+  color: #00bfff;
+  text-shadow: 0 0 25px rgba(0,191,255,0.8), 0 0 60px rgba(0,191,255,0.3);
+  animation: fadeDown 2s ease;
+}
+.hero-content p {
+  font-size: 1.4rem;
+  color: #d0d8ff;
+  margin: 15px 0;
+  animation: fadeUp 2s ease;
+}
+.cta-button {
+  display: inline-block;
+  padding: 14px 32px;
+  color: #00bfff;
+  font-weight: bold;
+  border: 2px solid #00bfff;
+  border-radius: 35px;
+  text-decoration: none;
+  transition: 0.3s ease;
+  animation: fadeUp 2.5s ease;
+}
+.cta-button:hover {
+  background-color: #00bfff;
+  color: #000;
+  box-shadow: 0 0 25px #00bfff, 0 0 60px #00bfff60;
+}
+
+/* NAVBAR */
+.navbar {
+  background-color: rgba(5, 5, 20, 0.9);
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(0, 191, 255, 0.1);
+}
+.navbar a {
+  color: #e6e6e6;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: 0.3s;
+}
+.navbar a:hover {
+  color: #00bfff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+/* GAMES SECTION */
+.games {
+  padding: 80px 10%;
+  background: linear-gradient(180deg, #050510 0%, #0a0a18 100%);
+  text-align: center;
+}
+.games h2 {
+  font-size: 2.8rem;
+  color: #00bfff;
+  text-shadow: 0 0 25px #00bfff80;
+  margin-bottom: 60px;
+}
+.game-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+/* GAME CARD */
+.card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(0, 191, 255, 0.08);
+  width: 300px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
+  position: relative;
+  height:500px;
+}
+.card:hover {
+  transform: translateY(-12px) scale(1.03);
+  box-shadow: 0 0 35px #00bfff40;
+}
+.card-img {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  height:350px;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+.card:hover .card-img img {
+  transform: scale(1.15);
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(5, 15, 30, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.card:hover .overlay {
+  opacity: 1;
+}
+.play-btn {
+  padding: 10px 25px;
+  border: 2px solid #00bfff;
+  border-radius: 30px;
+  color: #00bfff;
+  font-weight: bold;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+.play-btn:hover {
+  background: #00bfff;
+  color: #000;
+  box-shadow: 0 0 15px #00bfff;
+}
+.card h3 {
+  font-size: 1.5rem;
+  color: #fff;
+  margin: 15px 0 8px;
+}
+.card p {
+  font-size: 1rem;
+  color: #b0c4de;
+  padding: 0 15px 25px;
+}
+
+/* ARROWS */
+.arrow {
+  position: absolute;
+  top: 50%;
+  font-size: 2.2rem;
+  color: #00bfff;
+  padding: 12px;
+  cursor: pointer;
+  z-index: 15;
+  background: rgba(0,0,0,0.4);
+  border-radius: 50%;
+  transform: translateY(-50%);
+  user-select: none;
+  transition: 0.3s;
+}
+.arrow:hover {
+  background: rgba(0, 191, 255, 0.3);
+  box-shadow: 0 0 15px #00bfff;
+}
+.arrow.left { left: 25px; }
+.arrow.right { right: 25px; }
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050510;
+  border-top: 1px solid rgba(0,191,255,0.15);
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeDown {
+  from {opacity: 0; transform: translateY(-40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeUp {
+  from {opacity: 0; transform: translateY(40px);}
+  to {opacity: 1; transform: translateY(0);}
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .hero-content h1 {font-size: 2.8rem;}
+  .games h2 {font-size: 2rem;}
+  .game-cards {flex-direction: column; align-items: center;}
+}
+</style>
+</head>
+
+<body>
+<header class="hero">
+  <div class="slideshow">
+    <img src="C:\Users\krish\OneDrive\Documents\website\fantasy-night-blue-dragon-a2foraje4ot1etod.jpg"class="slide active" alt="Slide 1">
+    <img src="C:\Users\krish\OneDrive\Documents\website\dark-blue-werewolf-magic-njeqezls7km3s6ub.jpg" class="slide" alt="Slide 2">
+    <img src="C:\Users\krish\OneDrive\Documents\website\neon-blue-phoenix-hd-j33a80w71ju5zic0.jpg" class="slide" alt="Slide 3">
+    <img src="C:\Users\krish\OneDrive\Documents\website\wb3.jpg" class="slide" alt="Slide 4">
+    <img src="C:\Users\krish\OneDrive\Documents\website\dark-demon-kbzckurlqd6c8ibz.jpg"class="slide" alt="Slide 5">
+  </div>
+
+  <div class="arrow left">&#10094;</div>
+  <div class="arrow right">&#10095;</div>
+
+  <div class="hero-content">
+    <h1>Éternel Realms</h1>
+    <p>Forge Your Destiny Beyond Time</p>
+    <a href="login1.html" class="cta-button">Enter the Realm</a>
+  </div>
+</header>
+
+<nav class="navbar">
+  <a href="home.html">Home</a>
+  <a href="login1.html">Login</a>
+  <a href="game.html">Game</a>
+  <a href="heroes.html">Heroes</a>
+  <a href="#">Events</a>
+  <a href="#">Community</a>
+  <a href="leaderboard.html">Leaderboard</a>
+  <a href="#">Contact</a>
+</nav>
+
+<section class="games">
+  <h2>Featured Realms</h2>
+  <div class="game-cards">
+    <div class="card">
+      <div class="card-img">
+        <img src="C:\Users\krish\OneDrive\Documents\website\pic1.jpg" alt="Eternal Clash">
+        <div class="overlay">
+          <a href="#" class="play-btn">Explore</a>
+        </div>
+      </div>
+      <h3>Eternal Clash</h3>
+      <p>Battle for the Infinity Shards in a cosmic war across timeless realms.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="C:\Users\krish\OneDrive\Documents\website\WhatsApp Image 2025-11-02 at 11.12.43.jpeg" alt="Shadow Reign">
+        <div class="overlay">
+          <a href="#" class="play-btn">Explore</a>
+        </div>
+      </div>
+      <h3>Shadow Reign</h3>
+      <p>Defend the light against the rising tide of the Shadow Legion.</p>
+    </div>
+
+    <div class="card">
+      <div class="card-img">
+        <img src="C:\Users\krish\OneDrive\Documents\website\WhatsApp Image 2025-11-02 at 11.13.02.jpeg" alt="Chrono Wars">
+        <div class="overlay">
+          <a href="#" class="play-btn">Explore</a>
+        </div>
+      </div>
+      <h3>Chrono Wars</h3>
+      <p>Bend time, rewrite fate, and shape the destiny of the universe.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Éternel Realms | All Rights Reserved</p>
+</footer>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+let index = 0;
+function showSlide(newIndex) {
+  slides[index].classList.remove("active");
+  index = (newIndex + slides.length) % slides.length;
+  slides[index].classList.add("active");
+}
+document.querySelector(".arrow.left").addEventListener("click", () => showSlide(index - 1));
+document.querySelector(".arrow.right").addEventListener("click", () => showSlide(index + 1));
+setInterval(() => showSlide(index + 1), 5000);
+</script>
+</body>
+</html>

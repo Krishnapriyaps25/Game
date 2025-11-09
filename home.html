@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Éternel Realms - Home</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Cinzel+Decorative:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #050510;
+  color: #e6e6e6;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+.hero {
+  position: relative;
+  height: 100vh;
+  background: linear-gradient(180deg, #020214, #050510);
+  background-image: url('C:\Users\krish\OneDrive\Documents\website\dark-blue-trending-vertical-lines-3p7uu9ri7165eigv.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background: rgba(0, 0, 30, 0.7);
+  text-align: center;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0,191,255,0.25);
+}
+
+.overlay h1 {
+  font-family: 'Cinzel Decorative', cursive;
+  font-size: 4rem;
+  color: #00bfff;
+  text-shadow: 0 0 30px rgba(0,191,255,0.8);
+  margin-bottom: 15px;
+}
+
+.overlay p {
+  font-size: 1.4rem;
+  color: #d0d8ff;
+  margin-bottom: 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: #00bfff;
+  padding: 14px 35px;
+  border: 2px solid #00bfff;
+  border-radius: 35px;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  background-color: #00bfff;
+  color: #000;
+  box-shadow: 0 0 25px #00bfff, 0 0 60px #00bfff60;
+  transform: scale(1.05);
+}
+
+.highlights {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 80px 10%;
+  background: linear-gradient(180deg, #050510, #0a0a18);
+  text-align: center;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(0,191,255,0.15);
+  padding: 40px;
+  border-radius: 20px;
+  width: 320px;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 0 40px rgba(0,191,255,0.4);
+}
+
+.card h2 {
+  color: #00bfff;
+  margin-bottom: 10px;
+  text-shadow: 0 0 20px rgba(0,191,255,0.5);
+}
+
+.card p {
+  color: #b0c4de;
+  margin-bottom: 15px;
+}
+
+.link {
+  color: #00bfff;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.link:hover {
+  color: #fff;
+  text-shadow: 0 0 8px #00bfff;
+}
+
+.news {
+  text-align: center;
+  padding: 80px 10%;
+  background: #06061a;
+}
+
+.news h2 {
+  color: #00bfff;
+  font-size: 2.5rem;
+  text-shadow: 0 0 20px rgba(0,191,255,0.6);
+  margin-bottom: 30px;
+}
+
+.news ul {
+  list-style: none;
+  font-size: 1.2rem;
+  color: #c8d8ff;
+  margin-bottom: 25px;
+}
+
+.news li {
+  margin: 10px 0;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-around;
+  background: #050510;
+  padding: 50px 10%;
+  font-size: 1.3rem;
+  border-top: 1px solid rgba(0,191,255,0.15);
+  border-bottom: 1px solid rgba(0,191,255,0.15);
+}
+
+.stats span {
+  color: #00bfff;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00bfff;
+}
+
+
+.adventure {
+  text-align: center;
+  padding: 80px 10%;
+  background: linear-gradient(180deg, #0a0a18, #050510);
+}
+
+.adventure h2 {
+  color: #00bfff;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  text-shadow: 0 0 25px rgba(0,191,255,0.6);
+}
+
+.adventure p {
+  color: #b0c4de;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+footer {
+  text-align: center;
+  padding: 25px;
+  background: #050510;
+  border-top: 1px solid rgba(0,191,255,0.15);
+  color: #aaa;
+  letter-spacing: 0.5px;
+}
+
+footer .social a {
+  color: #00bfff;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: 0.3s ease;
+}
+
+footer .social a:hover {
+  color: #fff;
+  text-shadow: 0 0 10px #00bfff;
+}
+@media (max-width: 768px) {
+  .overlay h1 { font-size: 2.5rem; }
+  .stats { flex-direction: column; text-align: center; gap: 15px; }
+  .buttons { flex-direction: column; gap: 15px; }
+}
+</style>
+</head>
+
+<body>
+<section class="hero">
+  <div class="overlay">
+      <h1>Éternel Realms</h1>
+      <p>Where Legends Are Forged</p>
+      <a href="login1.html" class="btn">Enter the Realms</a>
+  </div>
+</section>
+
+<section class="highlights">
+  <div class="card">
+      <h2>Game of the Week</h2>
+      <p>Crystal Caverns awaits your courage...</p>
+      <a href="games.html" class="link">Explore</a>
+  </div>
+  <div class="card">
+      <h2>Hero Spotlight</h2>
+      <p>Meet Arwyn, Guardian of the Flame.</p>
+      <a href="heroes.html" class="link">Meet Heroes</a>
+  </div>
+  <div class="card">
+      <h2>Upcoming Event</h2>
+      <p>The Shadow Tournament begins Aug 25!</p>
+      <a href="events.html" class="link">View Events</a>
+  </div>
+</section>
+
+<section class="news">
+  <h2>News & Announcements</h2>
+  <ul>
+      <li>New map released: Crystal Caverns</li>
+      <li>Weekly guild war results posted</li>
+      <li>Tournament prize pool doubled</li>
+  </ul>
+  <a href="community.html" class="link">See More</a>
+</section>
+
+<section class="stats">
+  <div> Active Players: <span>1,245</span></div>
+  <div> Realms Explored: <span>57</span></div>
+  <div> Top Guild: <span>Shadow Blades</span></div>
+</section>
+
+<section class="adventure">
+  <h2>Your Journey Awaits...</h2>
+  <p>Join heroes, explore Éternel realms, and carve your name into legend.</p>
+  <div class="buttons">
+      <a href="login1.html" class="btn">Join Now</a>
+      <a href="games.html" class="btn">Browse Games</a>
+      <a href="heroes.html" class="btn">Meet the Heroes</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Éternel Realms | All Rights Reserved</p>
+  <div class="social">
+      <a href="#">Discord</a> | 
+      <a href="#">Twitter</a> | 
+      <a href="#">YouTube</a>
+  </div>
+</footer>
+</body>
+</html>
