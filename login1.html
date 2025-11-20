@@ -6,8 +6,6 @@
 <title>Éternel Realms - Login</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Poppins:wght@300;400&display=swap');
-
-/* 🌌 Background Animation */
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
@@ -27,8 +25,6 @@ body {
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
-
-/* ⚡ Login Box */
 .login-container {
     background: rgba(10, 15, 25, 0.9);
     padding: 50px;
@@ -51,8 +47,6 @@ body {
     from { opacity: 0; transform: scale(0.9); }
     to { opacity: 1; transform: scale(1); }
 }
-
-/* ✨ Title */
 .login-container h2 {
     color: #00bfff;
     margin-bottom: 25px;
@@ -61,8 +55,6 @@ body {
     letter-spacing: 2px;
     text-shadow: 0 0 20px rgba(0,191,255,0.6), 0 0 50px rgba(0,191,255,0.2);
 }
-
-/* 🧾 Input Fields */
 .login-container input {
     width: 90%;
     padding: 15px;
@@ -85,8 +77,6 @@ body {
     box-shadow: 0 0 12px #00bfff;
     transform: scale(1.02);
 }
-
-/* 🔘 Button */
 .login-container button {
     width: 95%;
     padding: 14px;
@@ -106,8 +96,6 @@ body {
     box-shadow: 0 0 40px rgba(0,191,255,0.6);
     transform: scale(1.05);
 }
-
-/* 🔗 Links */
 .login-container a {
     color: #a0b4c4;
     font-size: 15px;
@@ -121,8 +109,6 @@ body {
     color: #00bfff;
     text-shadow: 0 0 10px rgba(0,191,255,0.8);
 }
-
-/* 💬 Message */
 .message {
     color: #e6e6e6;
     margin-top: 15px;
@@ -143,12 +129,9 @@ body {
         <a href="#">Forgot your password?</a>
     </form>
 </div>
-
 <script>
 const form = document.getElementById("loginForm");
 const message = document.getElementById("message");
-
-const validUser = { username: "player1", password: "eternel123" };
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -157,18 +140,33 @@ form.addEventListener("submit", function(event) {
   const pass = document.getElementById("password").value.trim();
 
   if (user === "" || pass === "") {
-    showMessage("⚠️ Please fill in both fields!", "#00bfff");
+    showMessage("Please fill in both fields", "#00bfff");
     return;
   }
 
-  if (user === validUser.username && pass === validUser.password) {
-    showMessage("✅ Access Granted! Entering the Realm...", "#00ffcc");
-    setTimeout(() => {
-      window.location.href = "dashboard.html";
-    }, 1800);
-  } else {
-    showMessage("❌ Invalid credentials! Try again.", "#ff5555");
-  }
+  const xhr = new XMLHttpRequest();
+  xhr.open("POST", "login_server.php", true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function() {
+    if (xhr.readyState === 4) {
+      if (xhr.status === 200) {
+        const response = JSON.parse(xhr.responseText);
+        if (response.status === "success") {
+          showMessage("Access Granted! Entering the Realm...", "#00ffcc");
+          setTimeout(() => {
+            window.location.href = "dashboard.html";
+          }, 1800);
+        } else {
+          showMessage("Invalid credentials! Try again.", "#ff5555");
+        }
+      } else {
+        showMessage("Server not responding!", "#ff5555");
+      }
+    }
+  };
+
+  xhr.send(`username=${encodeURIComponent(user)}&password=${encodeURIComponent(pass)}`);
 });
 
 function showMessage(text, color) {
@@ -176,6 +174,6 @@ function showMessage(text, color) {
   message.textContent = text;
 }
 </script>
-
 </body>
-</html>
+</html><!php -S localhost:8000
+http://localhost:8000/login1.html>
