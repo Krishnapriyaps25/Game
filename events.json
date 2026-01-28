@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "name": "Dragon Slayer Tournament",
+    "reward": 5000,
+    "startDate": "2026-02-01T12:00:00Z",
+    "category": "tournament",
+    "description": "Defeat the mighty dragon and claim your legendary reward."
+  },
+  {
+    "id": 2,
+    "name": "Treasure Hunt",
+    "reward": 1200,
+    "startDate": "2026-01-20T09:00:00Z",
+    "category": "adventure",
+    "description": "Explore hidden lands to find precious treasures."
+  },
+  {
+    "id": 3,
+    "name": "PvP Arena Clash",
+    "reward": 3000,
+    "startDate": "2026-01-25T18:00:00Z",
+    "category": "pvp",
+    "description": "Challenge other players in intense PvP battles."
+  },
+  {
+    "id": 4,
+    "name": "Guild Wars",
+    "reward": 8000,
+    "startDate": "2026-02-10T20:00:00Z",
+    "category": "guild",
+    "description": "Join your guild to conquer rival factions and earn epic loot."
+  },
+  {
+    "id": 5,
+    "name": "Mystic Potion Brewing",
+    "reward": 700,
+    "startDate": "2026-01-22T14:00:00Z",
+    "category": "crafting",
+    "description": "Brew magical potions using rare ingredients to gain unique buffs."
+  }
+]
