@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html ng-app="gameApp">
+<head>
+    <title>Online Game Events</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0d0d0d;
+            color: #e0e0e0;
+            padding: 30px;
+        }
+
+        h1 {
+            color: #1e90ff;
+            margin-bottom: 20px;
+        }
+
+        select {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+            border: 1px solid #1e90ff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #121212;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid #1e90ff;
+            border-radius: 8px;
+            transition: transform 0.2s;
+        }
+
+        li:hover {
+            transform: translateY(-3px);
+        }
+
+        h2 {
+            color: #1e90ff;
+            margin: 0 0 10px 0;
+            font-size: 1.5em;
+        }
+
+        p {
+            margin: 5px 0;
+            line-height: 1.5;
+        }
+
+        .category {
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-right: 6px;
+        }
+
+        .tournament { background-color: #0b3d91; }
+        .adventure { background-color: #104e4e; }
+        .pvp { background-color: #3b1e70; }
+        .guild { background-color: #1e3b5f; }
+        .crafting { background-color: #2e4b4b; }
+
+        .reward {
+            color: #00ffff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body ng-controller="EventsController">
+
+<h1>Upcoming Game Events</h1>
+
+<!-- Filter by Category -->
+<label>Filter by category:</label>
+<select ng-model="selectedCategory">
+    <option value="">All</option>
+    <option value="tournament">Tournament</option>
+    <option value="adventure">Adventure</option>
+    <option value="pvp">PvP</option>
+    <option value="guild">Guild</option>
+    <option value="crafting">Crafting</option>
+</select>
+
+<ul>
+    <li ng-repeat="event in events | filter:{category: selectedCategory}"> <!-- Filter/Subsetting -->
+        <h2>{{ event.name | uppercase }}</h2> <!-- Uppercase Filter -->
+
+        <p>
+            <span class="category {{event.category}}">{{ event.category | uppercase }}</span>
+            <strong>Start Date:</strong> {{ event.startDate | date:'fullDate' }} <!-- Date Filter -->
+        </p>
+
+        <p>
+            <strong>Reward:</strong> 
+            <span class="reward">{{ event.reward | currency:"$" }}</span> <!-- Currency Filter -->
+            ({{ event.reward | number }}) <!-- Number Filter -->
+        </p>
+
+        <p>{{ event.description | lowercase }}</p> <!-- Lowercase Filter -->
+    </li>
+</ul>
+
+<script>
+    angular.module('gameApp', [])
+    .controller('EventsController', function($scope, $http) {
+        $http.get('events.json').then(function(response){
+            $scope.events = response.data;
+        });
+    });
+</script>
+
+</body>
+</html>
