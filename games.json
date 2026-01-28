@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "name": "Cyber Strike",
+    "genre": "Action",
+    "price": 49.99,
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "Fantasy Quest",
+    "genre": "RPG",
+    "price": 39.99,
+    "rating": 4.2
+  },
+  {
+    "id": 3,
+    "name": "Speed Racer",
+    "genre": "Racing",
+    "price": 29.99,
+    "rating": 4.0
+  },
+  {
+    "id": 4,
+    "name": "War Zone",
+    "genre": "Action",
+    "price": 59.99,
+    "rating": 4.8
+  },
+  {
+    "id": 5,
+    "name": "Mystic Heroes",
+    "genre": "Adventure",
+    "price": 44.99,
+    "rating": 4.3
+  }
+]
